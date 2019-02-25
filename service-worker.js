@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "https://dmitry-tuzenkov.github.io/students-manager-app/precache-manifest.8c48c31b50abbfb17e1a4828c75251c2.js"
+  "/students-manager-app/precache-manifest.7a7bf8faec7fcbac586202cc9aa3925f.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("https://dmitry-tuzenkov.github.io/students-manager-app/index.html", {
+workbox.routing.registerNavigationRoute("/students-manager-app/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
