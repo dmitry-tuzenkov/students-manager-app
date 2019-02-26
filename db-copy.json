@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "first": "Dmitry",
+      "last": "Tuzenkov",
+      "birthday": "1990-03-13T06:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "first": "Oleg",
+      "last": "Voronko",
+      "birthday": "1987-11-04T16:40:00.000Z"
+    }
+  ],
+  "grades": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "student_name": "Dmitry Tuzenkov",
+      "grade": "A",
+      "profession": "chemistry",
+      "completed_at": "2019-01-04T16:40:00.000Z"
+    },
+    {
+      "id": 2,
+      "student_id": 1,
+      "student_name": "Dmitry Tuzenkov",
+      "grade": "A",
+      "profession": "math",
+      "completed_at": "2019-01-04T16:50:00.000Z"
+    }
+  ]
+}
