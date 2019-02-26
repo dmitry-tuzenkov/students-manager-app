@@ -4,7 +4,7 @@ export const fetchAllTypes = makeActions('FETCH_ALL_GRADES');
 export const addTypes = makeActions('ADD_GRADE');
 export const updateTypes = makeActions('UPDATE_GRADE');
 export const removeTypes = makeActions('REMOVE_GRADE');
-
+// TODO:  Replace with original fetch calls to api
 export const fetchAll = () => makeApiCallActions(
   'FETCH_ALL_GRADES',
   () => Promise.resolve([
@@ -29,7 +29,7 @@ export const fetchAll = () => makeApiCallActions(
 
 export const add = (data) => makeApiCallActions(
   'ADD_GRADE',
-  () => Promise.resolve(data)
+  () => Promise.resolve({ id: Date.now(), ...data })
 );
 
 export const update = (id, data) => makeApiCallActions(

@@ -4,7 +4,7 @@ export const actionTypes = makeActions('FETCH_ALL_STUDENTS');
 export const addTypes = makeActions('ADD_STUDENT');
 export const updateTypes = makeActions('UPDATE_STUDENT');
 export const removeTypes = makeActions('REMOVE_STUDENT');
-
+// TODO:  Replace with original fetch calls to api
 export const fetchAll = () => makeApiCallActions(
   'FETCH_ALL_STUDENTS',
   () => Promise.resolve([
@@ -25,7 +25,7 @@ export const fetchAll = () => makeApiCallActions(
 
 export const add = (data) => makeApiCallActions(
   'ADD_STUDENT',
-  () => Promise.resolve(data)
+  () => Promise.resolve({ id: Date.now(), ...data })
 );
 
 export const update = (id, data) => makeApiCallActions(

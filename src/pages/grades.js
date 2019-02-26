@@ -7,6 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 
 import Navigation from './navigation';
 import DataTable from '../components/ui/DataTable';
+import GradeForm from '../components/GradeForm';
 
 const styles = theme => ({
   fab: {
@@ -19,17 +20,20 @@ const styles = theme => ({
 const fields = ['id', 'student_name', 'profession', 'grade', 'completed_at'];
 
 export class Grades extends React.Component {
-  
+
   componentDidMount() {
-    this.props.fetchAll();
+    this.props.fetchAllGrades();
+    this.props.fetchAllStudents();
   }
 
   render() {
-    const { grades, classes } = this.props;
+    const { classes, grades, students, add} = this.props;
 
     return (
       <div>
         <Navigation pageName="Grades" />
+
+        <GradeForm isCreate={true} createOrUpdate={add} students={students} />
 
         <DataTable fields={fields} rows={grades} actions={{
           editAction: (student) => console.log('update', student.id, student),
@@ -46,7 +50,8 @@ export class Grades extends React.Component {
 };
 
 Grades.reactProps = {
-  grades: PropTypes.array.isRequred,
+  grades: PropTypes.array,
+  students: PropTypes.array.isRequred,
   fetchAll: PropTypes.func.isRequred,
 };
 

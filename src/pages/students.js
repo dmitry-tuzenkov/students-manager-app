@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 
 import Navigation from './navigation';
 import DataTable from '../components/ui/DataTable';
+import StudentForm from '../components/StudentForm';
 
 const styles = theme => ({
   fab: {
@@ -48,7 +49,7 @@ export class Students extends React.Component {
   }
 
   render() {
-    const { classes, update, remove } = this.props;
+    const { classes, add, update, remove } = this.props;
     const students = this.props.students.map(student => ({
       age: calcAge(student.birthday, Date.now()),
       ...student,
@@ -58,6 +59,8 @@ export class Students extends React.Component {
     return (
       <div>
         <Navigation pageName="Students"  />
+
+        <StudentForm isCreate={true} createOrUpdate={add} />
 
         <DataTable fields={fields} rows={students} actions={{
           editAction: (student) => update(student.id, student),
@@ -74,7 +77,7 @@ export class Students extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title"
         >
-        
+
           <DialogTitle id="responsive-dialog-title">
             New student
           </DialogTitle>
