@@ -30,14 +30,23 @@ export class GradeForm extends React.Component {
   };
 
   submit = () => {
-    const { createOrUpdate } = this.props;
+    const { createOrUpdate, students } = this.props;
+
     createOrUpdate({
       student_name: this.state.studentName,
       profession: this.state.profession,
       grade: this.state.grade,
       completed_at: this.state.completedAt,
     });
+
+    this.setState({
+      studentName: normalizeName(students[0]),
+      profession: '',
+      grade: '',
+      completedAt: new Date().toLocaleDateString(),
+    });
   }
+
 
   render() {
     const { isCreate, students } = this.props

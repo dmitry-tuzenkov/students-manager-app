@@ -27,7 +27,7 @@ export class Grades extends React.Component {
   }
 
   render() {
-    const { classes, grades, students, add} = this.props;
+    const { classes, grades, students, add, remove} = this.props;
 
     return (
       <div>
@@ -37,7 +37,7 @@ export class Grades extends React.Component {
 
         <DataTable fields={fields} rows={grades} actions={{
           editAction: (student) => console.log('update', student.id, student),
-          deleteAction: (student) => console.log('remove', student.id),
+          deleteAction: (student) => remove(student.id),
         }} />
 
         <Fab color="primary" aria-label="Add" className={classes.fab}>

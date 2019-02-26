@@ -27,11 +27,17 @@ export class StudentForm extends React.Component {
 
   submit = () => {
     const { createOrUpdate } = this.props;
-    
+
     createOrUpdate({
       first: this.state.first,
       last: this.state.last,
       birthday: this.state.birthday,
+    });
+
+    this.setState({
+      first: '',
+      last: '',
+      birthday: new Date().toLocaleDateString(),
     });
   }
 
