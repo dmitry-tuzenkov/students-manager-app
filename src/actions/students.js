@@ -30,10 +30,13 @@ export const add = (data) => makeApiCallActions(
 
 export const update = (id, data) => makeApiCallActions(
   'UPDATE_STUDENT',
-  () => Promise.resolve({ id, ...data })
+  () => Promise.resolve({ id, ...data }),
 );
 
 export const remove = (id) => makeApiCallActions(
   'REMOVE_STUDENT',
-  () => Promise.resolve(id)
+  () => Promise.resolve(id),
+  {
+    resolver: () => ({ id })
+  }
 );

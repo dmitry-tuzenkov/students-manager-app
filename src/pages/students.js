@@ -1,7 +1,15 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button';
 
 import Navigation from './navigation';
 import DataTable from '../components/ui/DataTable';
@@ -23,36 +31,70 @@ const fields = ['id', 'first', 'last', 'age', 'birthday'];
 
 export class Students extends React.Component {
 
+  state = {
+    open: false,
+  }
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
   componentDidMount() {
     this.props.fetchAll();
   }
 
   render() {
-    const { classes, add, edit, remove } = this.props;
+    const { classes, update, remove } = this.props;
     const students = this.props.students.map(student => ({
       age: calcAge(student.birthday, Date.now()),
       ...student,
     }));
 
-    const onAdd = () => add({
-      id: students.length + 1,
-      first: 'Fist',
-      last: 'Last',
-      birthday: new Date().toLocaleDateString()
-    });
 
     return (
       <div>
         <Navigation pageName="Students"  />
 
         <DataTable fields={fields} rows={students} actions={{
-          editAction: edit,
-          deleteAction: remove,
+          editAction: (student) => update(student.id, student),
+          deleteAction: (student) => remove(student.id),
         }} />
 
-        <Fab onClick={onAdd} color="primary" aria-label="Add" className={classes.fab}>
+        <Fab onClick={this.handleClickOpen} color="primary" aria-label="Add" className={classes.fab}>
           <AddIcon />
         </Fab>
+
+        <Dialog
+          fullScreen={false}
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="responsive-dialog-title"
+        >
+        
+          <DialogTitle id="responsive-dialog-title">
+            New student
+          </DialogTitle>
+
+          <DialogContent>
+            <DialogContentText>
+              For better UI/UX form should be in modal.
+            </DialogContentText>
+          </DialogContent>
+
+          <DialogActions>
+            <Button onClick={this.handleClose} color="secondary">
+              Cancel
+            </Button>
+            <Button onClick={this.handleClose} color="primary" autoFocus>
+              Create
+            </Button>
+          </DialogActions>
+
+        </Dialog>
 
       </div>
     );

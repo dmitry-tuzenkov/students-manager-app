@@ -6,7 +6,7 @@ import Pages from './pages/index';
 const Routing = (
   <Router>
     <div>
-      <Route exact path="/" component={App} />
+      <Route exact path="/" component={Pages.Students} />
       <Route path="/grades" component={Pages.Grades} />
       <Route path="/students" component={Pages.Students} />
     </div>
