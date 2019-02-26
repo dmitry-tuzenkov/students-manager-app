@@ -33,7 +33,7 @@ export class Grades extends React.Component {
       <div>
         <Navigation pageName="Grades" />
 
-        <GradeForm isCreate={true} createOrUpdate={add} students={students} />
+        {students.length && <GradeForm isCreate={true} createOrUpdate={add} students={students} />}
 
         <DataTable fields={fields} rows={grades} actions={{
           editAction: (student) => console.log('update', student.id, student),

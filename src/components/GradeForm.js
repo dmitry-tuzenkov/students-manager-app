@@ -17,12 +17,15 @@ const styles = theme => ({
 const normalizeName = (student) => `${student.first} ${student.last}`;
 
 export class GradeForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    studentName: '',
-    profession: '',
-    grade: '',
-    completedAt: new Date().toLocaleDateString(),
+    this.state = {
+      studentName: normalizeName(props.students[0]),
+      profession: '',
+      grade: '',
+      completedAt: new Date().toLocaleDateString(),
+    }
   }
 
   handleChange = prop => event => {
