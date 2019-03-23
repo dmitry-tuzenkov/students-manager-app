@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/students-manager-app/static/js/runtime~main.8c03fe6e.js"
   },
   {
-    "revision": "53833c22665f2800f1f4",
-    "url": "/students-manager-app/static/js/main.53833c22.chunk.js"
+    "revision": "698941886b94ee9aeb65",
+    "url": "/students-manager-app/static/js/main.69894188.chunk.js"
   },
   {
-    "revision": "20fdd495ff958dba3243",
-    "url": "/students-manager-app/static/js/2.20fdd495.chunk.js"
+    "revision": "5fe50e29ff070a1fe666",
+    "url": "/students-manager-app/static/js/2.5fe50e29.chunk.js"
   },
   {
-    "revision": "53833c22665f2800f1f4",
+    "revision": "698941886b94ee9aeb65",
     "url": "/students-manager-app/static/css/main.5af88a1b.chunk.css"
   },
   {
-    "revision": "aa6503ecda11ae27a34c21c563705239",
+    "revision": "1801e8c11f599aec749c3a76a057145d",
     "url": "/students-manager-app/index.html"
   }
 ];
